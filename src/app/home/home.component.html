@@ -1,0 +1,247 @@
+<div class="container-fluid p-0">
+
+    <app-all-products [ngStyle]="{'display':allProductDisplay}"></app-all-products>
+
+
+    <div [ngStyle]="{'display':displayHome}">
+<!-- corosel start -->
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="height: 500px;">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://i.postimg.cc/vmYC7p0f/image.webp" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1>Explore the world of laptops</h1>
+                  <a routerLink="newArrival" class="btn btn-success"><b>New Laptops</b></a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://i.postimg.cc/Dyt2gyGs/image.webp" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1>Explore the world of laptops</h1>
+                  <a routerLink="newArrival" class="btn btn-success"><b>New Laptops</b></a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://i.postimg.cc/8kx5yHQj/image.webp" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1>Explore the world of laptops</h1>
+                  <a routerLink="newArrival" class="btn btn-success"><b>New Laptops</b></a>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+<!-- corosel end -->
+<!-- content 2 -->
+        <div class="container py-5 ">
+            <div class="row content2">
+                <div class="col-sm-6 col-md-3">
+                    <div class="row">
+                        <div class="col-2"><i class="fas fa-shipping-fast fa-2x"></i></div>
+                        <div class="col">
+                            <h3>Free Shipping</h3>
+                            <p>Order over 200000₹</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="row">
+                        <div class="col-2"><i class="fas fa-lock fa-2x"></i></div>
+                        <div class="col">
+                            <h3>Secure Payment</h3>
+                            <p>100% Secure Payment</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="row">
+                        <div class="col-2"><i class="fas fa-redo-alt fa-2x"></i></div>
+                        <div class="col">
+                            <h3>Easy Returns</h3>
+                            <p>10 Days Returns</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="row">
+                        <div class="col-2"><i class="fas fa-headset fa-2x"></i></div>
+                        <div class="col">
+                            <h3>24/7 Support</h3>
+                            <p>Call Us Anytime</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- bestsellers -->
+        <div class="container-fluid mb-2">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center fw-bold">Best Sellers</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container topSec mx-sm-auto ">
+            <div class="row  border-top pb-4 ">
+                <div class="col-sm-6 col-lg-3 pt-5 text-center" *ngFor="let product of bestSeller ">
+                    <div class="card m-auto" style="width: 16rem; border: none;">
+                        <button type="button" style="background-color: #fff;" (click)="openPopup(product)">
+                            <img src="{{product.image}}" class="card-img-top m-auto bookIconImg" style="height: 150px;" alt="...">
+                        </button>
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <p class="card-text authorText">{{product.os}}</p>
+                            <p class="card-text text-danger">{{product.price |currency:'INR':'symbol-narrow'}}</p>
+                            <div>
+                                <button class="btn btn-outline-danger mt-auto mx-3" (click)="addToWishlist(product)"><i
+                                        class="fa fa-heart"></i></button>
+                                <button class="btn btn-outline-success mt-auto mx-3" (click)="addToCart(product)"><i
+                                        class="fa fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a routerLink="bestSellers" class="text-center mt-5" style="color:#131a24;">See All</a>
+            </div>
+        </div>
+    
+    
+        <!-- under40000 -->
+        <div class="container-fluid mb-2 mt-4">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center fw-bold">Under 40000</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container topSec mx-sm-auto">
+            <div class="row  border-top pb-4">
+                <div class="col-sm-6 col-lg-3 pt-5 text-center" *ngFor="let product of topUnder40000 ">
+                    <div class="card m-auto" style="width: 16rem; border: none;">
+                        <button type="button" style="background-color: #fff;" (click)="openPopup(product)">
+                            <img src="{{product.image}}" class="card-img-top m-auto bookIconImg" style="height: 180px;" alt="...">
+                        </button>
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <p class="card-text authorText">{{product.os}}</p>
+                            <p class="card-text text-danger">{{product.price |currency:'INR':'symbol-narrow'}}</p>
+                            <div>
+                                <button class="btn btn-outline-danger mt-auto mx-3" (click)="addToWishlist(product)"><i
+                                        class="fa fa-heart"></i></button>
+                                <button class="btn btn-outline-success mt-auto mx-3" (click)="addToCart(product)"><i
+                                        class="fa fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a routerLink="under40000" class="text-center mt-5" style="color:#131a24;">See All</a>
+            </div>
+        </div>
+    
+    
+    
+        <!-- deal of the day -->
+        <div class="container-fluid">
+            <div class="row deal py-5">
+                <div class="col ms-5 ps-5">
+                    <h3 class="mt-4">Deal Of The Day</h3>
+                    <h1 class="text-success" style="font-weight:bold;">Upto 50% Off</h1>
+                    <p>Specially offer, Just For You <br>
+                        Best selling laptops for increasing your productivity !
+                    </p>
+                    <!-- <button type="button" class="btn btn-success">Shop Now</button> -->
+                </div>
+    
+                <!-- <div class="col pe-5 pe-5">
+                    <img src="../../assets/image/deal-img.jpg" alt="" class="dealImg" width="500px">
+                </div> -->
+            </div>
+        </div>
+    
+    
+        <!-- new arrivals  -->
+        <div class="container-fluid mb-1 mt-5">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center fw-bold">New Arrivals</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container topSec mx-sm-auto">
+            <div class="row border-bottom border-top pb-4">
+                <div class="col-sm-6 col-lg-3 pt-5 text-center" *ngFor="let product of topNewArrival">
+                    <div class="card m-auto" style="width: 16rem; border: none;">
+                        <button type="button" style="background-color: #fff;" (click)="openPopup(product)">
+                            <img src="{{product.image}}" class="card-img-top m-auto bookIconImg" alt="...">
+                        </button>
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <p class="card-text authorText">{{product.os}}</p>
+                            <p class="card-text text-danger">{{product.price |currency:'INR':'symbol-narrow'}}</p>
+                            <div>
+                                <button class="btn btn-outline-danger mt-auto mx-3" (click)="addToWishlist(product)"><i
+                                        class="fa fa-heart"></i></button>
+                                <button class="btn btn-outline-success mt-auto mx-3" (click)="addToCart(product)"><i
+                                        class="fa fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a routerLink="newArrival" class="text-center mt-5" style="color:#131a24;">See All</a>
+            </div>
+        </div>
+    
+    </div>
+    
+    
+   
+    
+    
+    
+
+</div>
+
+ <!--modal -->
+ <div class="modal fade show w-100" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered"style="height: 100vh" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h3 class="modal-title">{{modalTitle}}</h3>
+            </div>
+            <div class="modal-body" style="display: flex;justify-content:space-between;width: 100%;align-items: center;">
+                <div>
+                    <img src="{{modalImage}}" style="width: 400px;" alt="">
+                </div>
+                <div style="width: 500px;">
+                <h4 class="text-danger">₹{{modalPrice}}</h4>
+                <h5 class="text-success">{{modalDiscount}}% Off</h5>
+                <b>{{modalOs}}</b>
+                <p>{{modalRam}} </p>
+                <p>{{modalDescription}}</p>
+            </div>
+        </div>
+            <div>
+                <button class="btn btn-danger mt-auto mx-3" (click)="addToWishlist(product)">Add to wishlist</button>
+                <button class="btn btn-success mt-auto mx-3" (click)="addToCart(product)">Add to cart</button>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="text-white bg-danger p-2 rounded fas fa-times"
+                    (click)="closePopup()"></button>
+            </div>
+        </div>
+    </div>
+</div>

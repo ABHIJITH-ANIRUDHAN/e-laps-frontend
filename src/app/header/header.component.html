@@ -1,0 +1,30 @@
+
+<div class="wrapper">
+    <a class="btn" routerLink="">
+      <div class="img" style="display: grid;">
+        <img src="https://i.postimg.cc/Ss38F09t/pngimg-com-laptop-PNG5905-removebg-preview.png" style="width: 50px;place-self: center;" alt="">
+        <span>E-LAPS</span>
+      </div>
+    </a>
+    <div class="search">
+      <input (keyup)="search($event)" type="text" placeholder="Search for you favourite Laptop and more..." class="search-input">
+      <i class="fa fa-magnifying-glass search-icon"></i>
+    </div>
+    <div class="icons">
+      <div class="usericon">
+        <a class="btn" (click)="loginCall()">
+        <i class="fa fa-user"></i>
+        <span>ACCOUNT</span></a>
+      </div>
+      <div class="wishicon">
+        <a class="btn" href="home/wishlist">
+        <i class="fa fa-heart"></i>
+        <span>WISHLIST</span></a>
+      </div>
+      <div class="carticon">
+        <a class="btn" href="home/cart">
+        <i class="fa fa-cart-plus"></i>
+        <span>CART</span></a>
+      </div>
+    </div>
+  </div>

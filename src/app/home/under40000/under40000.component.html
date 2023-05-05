@@ -1,0 +1,68 @@
+
+<app-all-products [ngStyle]="{'display':allProductDisplay}"></app-all-products>
+
+<div class="container-fluid" [ngStyle]="{'display':displayHome}">
+    <div class="container-fluid mb-4">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center fw-bold">Laptops Under 4000</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container topSec">
+        <div class="row border-bottom border-top pb-4">
+            <div class="col-sm-6 col-md-3 pt-5 text-center" *ngFor="let product of under40000 ">
+                <div class="card m-auto" style="width: 16rem; border: none;">
+                    <button type="button" style="background-color: #fff;" (click)="openPopup(product)">
+                        <img src="{{product.image}}" class="card-img-top m-auto bookIconImg" style="height: 150px;" alt="...">
+                    </button>
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text authorText">{{product.os}}</p>
+                        <p class="card-text text-danger">{{product.price |currency:'INR':'symbol-narrow'}}</p>
+                        <div>
+                            <button class="btn btn-outline-danger mt-auto mx-3" (click)="addToWishlist(product)"><i
+                                    class="fa fa-heart"></i></button>
+                            <button class="btn btn-outline-success mt-auto mx-3" (click)="addToCart(product)"><i
+                                    class="fa fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--modal -->
+<div class="modal fade show w-100" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog modal-dialog-centered"style="height: 100vh" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h3 class="modal-title">{{modalTitle}}</h3>
+            </div>
+            <div class="modal-body" style="display: flex;justify-content:space-between;width: 100%;align-items: center;">
+                <div>
+                    <img src="{{modalImage}}" style="width: 400px;" alt="">
+                </div>
+                <div style="width: 500px;">
+                <h4 class="text-danger">₹{{modalPrice}}</h4>
+                <h5 class="text-success">{{modalDiscount}}% Off</h5>
+                <b>{{modalOs}}</b>
+                <p>{{modalRam}} </p>
+                <p>{{modalDescription}}</p>
+            </div>
+        </div>
+            <div>
+                <button class="btn btn-danger mt-auto mx-3" (click)="addToWishlist(product)">Add to wishlist</button>
+                <button class="btn btn-success mt-auto mx-3" (click)="addToCart(product)">Add to cart</button>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="text-white bg-danger p-2 rounded fas fa-times"
+                    (click)="closePopup()"></button>
+            </div>
+        </div>
+    </div>
+</div>

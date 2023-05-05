@@ -1,0 +1,35 @@
+body{
+    width: 100vw;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+}
+.logout{
+    border: 1px solid black;
+}
+.user{
+    width: 400px;
+    height: fit-content;
+    border: 1px solid #F2E9E9;
+    background-color: #F2E9E9;
+    color:#832729;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+.icon{
+    text-align: center;
+}
+.fas{
+    background-color: #F2E9E9;
+    color: #832729;
+}
+.name{
+    text-align: center;
+    padding: 10px 0;
+}
+.name span{
+    display: inline-block;
+    margin: 0 10px ;
+    font-size: 30px;
+}
